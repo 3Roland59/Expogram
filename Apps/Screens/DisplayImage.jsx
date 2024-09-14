@@ -12,6 +12,7 @@ import Animated, {
   FadeIn,
 } from "react-native-reanimated";
 import { GestureDetector, Gesture } from "react-native-gesture-handler";
+import { Feather } from '@expo/vector-icons'
 
 export default function DisplayImage({navigation, route}) {
 
@@ -69,9 +70,9 @@ export default function DisplayImage({navigation, route}) {
       >
       <StatusBar barStyle={'light-content'} backgroundColor={'#000'}/>
       <View className='absolute left-0 right-0 top-0 z-10 bg-[#00000080]'>
-        <TitleBar activity={downloading} name={'Image'} navigation={navigation} txt='Save' txtcolor='#fff' todo={()=>downloadReel(uri, 'Expogram')}  />
+        <TitleBar activity={downloading} name={'Image'} navigation={navigation} txt={<Feather name='download' size={20} color={'#fff'} />} txtcolor='#fff' todo={()=>downloadReel(uri, 'Expogram')}  />
       </View>
-      <Image source={{uri: uri}} className='flex-1' />
+      <Image source={{uri: uri}} className='flex-1' resizeMode='contain' />
       </Animated.View>
     </GestureDetector>
   )

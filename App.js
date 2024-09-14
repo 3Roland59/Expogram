@@ -1,5 +1,5 @@
 import 'react-native-url-polyfill/auto';
-import { View, Text, StatusBar, ActivityIndicator, Animated } from 'react-native'
+import { View, Text, StatusBar, ActivityIndicator, Animated, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import HomeScreen from './Apps/Screens/HomeScreen'
 import { COLORS } from './Utils/Constants'
@@ -60,15 +60,14 @@ export default function App() {
   if (!fontLoaded) {
     return <View className='flex-1 bg-black justify-center items-center' >
       <StatusBar barStyle={'light-content'} backgroundColor={'#000'} />
-      <LottieView source={require('./assets/lottie.json')} style={{width:300,height:300}} autoPlay loop />
+      {/* <LottieView source={require('./assets/lottie.json')} style={{width:300,height:300}} autoPlay loop /> */}
+      <Image source={require('./assets/splash.png')} style={{flex:1}} />
     </View>;
   }
 
 
   return (
     <GestureHandlerRootView className="flex-1" style={{ backgroundColor: COLORS.black}}>
-      {/* <SignedInStack /> */}
-      {/* <SignedOutStack /> */}
       <AuthNavigation />
       {
             show &&

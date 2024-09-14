@@ -117,11 +117,11 @@ const MediaLibrary = ({ navigation, route }) => {
             <View style={styles.imageContainer}>
               <Image source={{ uri: item.uri }} style={styles.image} />
               {multiple&&(
-                selectedImage.includes(item.uri)?(<TouchableOpacity className='absolute top-2 right-2'>
-                <FontAwesome name="circle" size={25} color={'#07f'} />
+                selectedImage.includes(item.uri)?(<TouchableOpacity onPress={() => handleImageSelection(item)} className='absolute top-2 right-2'>
+                <FontAwesome name="circle" size={25} color={'#82f'} />
               </TouchableOpacity>):
-              (<TouchableOpacity className='absolute top-2 right-2'>
-                <Feather name="circle" size={25} color={'#07f'} />
+              (<TouchableOpacity className='absolute top-2 right-2' onPress={() => handleImageSelection(item)}>
+                <Feather name="circle" size={25} color={'#82f'} />
               </TouchableOpacity>)
               )
               }

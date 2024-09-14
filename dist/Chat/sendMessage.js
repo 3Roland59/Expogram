@@ -25,7 +25,7 @@ const sendMessage = (user, currentUser, textMessage) => {
                 email: currentUser.email,
                 name: currentUser.name,
                 username: currentUser.username,
-                profile_picture: currentUser.profile_picture,
+                profile_picture: currentUser === null || currentUser === void 0 ? void 0 : currentUser.profile_picture,
                 status: 'unseen'
             };
             const newCurrentMessage = {

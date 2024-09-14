@@ -34,7 +34,7 @@ const Followers = ({ user, currentUser, navigation }) => {
     <View style={styles.container}>
       <TouchableWithoutFeedback onPress={() => handleViewProfile()}>
         <View style={styles.rowContainer}>
-          {checkStoriesSeen(user.username, currentUser.email) ? (
+          {!checkStoriesSeen(user.username, currentUser.email) ? (
             <LinearGradient start={[0.9, 0.45]}  end={[0.07, 1.03]}
               colors={['#07f', '#82f', '#f0f']}
               style={styles.rainbowBorder}
@@ -113,6 +113,8 @@ const styles = StyleSheet.create({
   },
   rowContainer: {
     flexDirection: "row",
+    width:SIZES.Width*0.7,
+    overflow:'hidden'
   },
   rainbowBorder: {
     borderRadius: 100,
@@ -155,12 +157,14 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   button: {
-    backgroundColor: "#333",
+    backgroundColor: "#000",
     justifyContent: "center",
     alignItems: "center",
     height: Platform.OS === "android" ? 36 : 32,
     width: 90,
     borderRadius: 10,
+    borderWidth: 1,
+    borderColor:'#fff'
   },
   buttonTextFollow: {
     color: "#08f",
@@ -169,7 +173,7 @@ const styles = StyleSheet.create({
     marginBottom: -3.5,
   },
   buttonTextRequested: {
-    color: "#fff",
+    color: "#82f",
     fontWeight: "700",
     fontSize: 13,
     marginBottom: -3.5,

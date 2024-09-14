@@ -44,24 +44,24 @@ export const contiueWithGoogle = (): Promise<boolean | any> => {
 //         }
 //     })
 // }
-export const loginWithGoogle = ():Promise<any> => {
-    return new Promise( async (resolve, reject):Promise<void> => {
-        try {
-            //const auth = getAuth()
-            const provider = new GoogleAuthProvider()
-            await signInWithRedirect(auth, provider)
-            const result = await getRedirectResult(auth)
-            //const credential = GoogleAuthProvider.credentialFromResult(result)
-           // const token = credential?.accessToken
-           if(result){
-                const user = result.user
-                resolve(user)
-           }
-        } catch (error) {
-            reject(error)
-        }
-    })
-}
+// export const loginWithGoogle = ():Promise<any> => {
+//     return new Promise( async (resolve, reject):Promise<void> => {
+//         try {
+//             //const auth = getAuth()
+//             const provider = new GoogleAuthProvider()
+//             await signInWithRedirect(auth, provider)
+//             const result = await getRedirectResult(auth)
+//             //const credential = GoogleAuthProvider.credentialFromResult(result)
+//            // const token = credential?.accessToken
+//            if(result){
+//                 const user = result.user
+//                 resolve(user)
+//            }
+//         } catch (error) {
+//             reject(error)
+//         }
+//     })
+// }
 // Function to log in to an existing user account
 export const onLogin = (email: string, password: string): Promise<boolean | any> => {
     return new Promise(async (resolve, reject): Promise<void> => {

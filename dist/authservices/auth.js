@@ -9,11 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.onLogout = exports.onLogin = exports.loginWithGoogle = exports.contiueWithGoogle = exports.onRegister = void 0;
+exports.onLogout = exports.onLogin = exports.contiueWithGoogle = exports.onRegister = void 0;
 const firebase_1 = require("../firebaseconfig/firebase");
 const database_1 = require("../database/database");
-const firebase_2 = require("../firebaseconfig/firebase");
-const auth_1 = require("firebase/auth");
 const onRegister = (email, username, password, country, profile_picture, bio, link) => {
     return new Promise((resolve, reject) => __awaiter(void 0, void 0, void 0, function* () {
         var _a;
@@ -59,26 +57,24 @@ exports.contiueWithGoogle = contiueWithGoogle;
 //         }
 //     })
 // }
-const loginWithGoogle = () => {
-    return new Promise((resolve, reject) => __awaiter(void 0, void 0, void 0, function* () {
-        try {
-            //const auth = getAuth()
-            const provider = new firebase_2.GoogleAuthProvider();
-            yield (0, auth_1.signInWithRedirect)(firebase_2.auth, provider);
-            const result = yield (0, firebase_2.getRedirectResult)(firebase_2.auth);
-            //const credential = GoogleAuthProvider.credentialFromResult(result)
-            // const token = credential?.accessToken
-            if (result) {
-                const user = result.user;
-                resolve(user);
-            }
-        }
-        catch (error) {
-            reject(error);
-        }
-    }));
-};
-exports.loginWithGoogle = loginWithGoogle;
+// export const loginWithGoogle = ():Promise<any> => {
+//     return new Promise( async (resolve, reject):Promise<void> => {
+//         try {
+//             //const auth = getAuth()
+//             const provider = new GoogleAuthProvider()
+//             await signInWithRedirect(auth, provider)
+//             const result = await getRedirectResult(auth)
+//             //const credential = GoogleAuthProvider.credentialFromResult(result)
+//            // const token = credential?.accessToken
+//            if(result){
+//                 const user = result.user
+//                 resolve(user)
+//            }
+//         } catch (error) {
+//             reject(error)
+//         }
+//     })
+// }
 // Function to log in to an existing user account
 const onLogin = (email, password) => {
     return new Promise((resolve, reject) => __awaiter(void 0, void 0, void 0, function* () {

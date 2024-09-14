@@ -56,9 +56,9 @@ const Comments = ({
         <TouchableOpacity className='mt-2' onPress={() => handleWriteComment()}>
             <View style={styles.container}>
             {
-              currentUser.profile_picture?
+              currentUser?.profile_picture?
               <Image
-                source={{uri:currentUser.profile_picture}}
+                source={{uri:currentUser?.profile_picture}}
                 style={styles.image}
               />:
               <Image

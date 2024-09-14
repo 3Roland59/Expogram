@@ -70,7 +70,7 @@ const EditProfile = ({ navigation }) => {
         <TouchableOpacity onPress={() => handlePictureModal()}>
           <Image
             source={{
-              uri: previewImage ? previewImage : currentUser.profile_picture,
+              uri: previewImage ? previewImage : currentUser?.profile_picture,
             }}
             style={styles.image}
           />

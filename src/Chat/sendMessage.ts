@@ -47,7 +47,7 @@ export const sendMessage = (user: user, currentUser: currentUser,textMessage: st
                 email: currentUser.email,
                 name: currentUser.name,
                 username: currentUser.username,
-                profile_picture: currentUser.profile_picture,
+                profile_picture: currentUser?.profile_picture,
                 status: 'unseen'
             }
 

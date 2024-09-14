@@ -29,7 +29,7 @@ const Interaction = ({ navigation, item, currentUser, text }) => {
       <View style={styles.rowContainer}>
         <TouchableOpacity onPress={() => handleUserProfile()}>
           {text === "commented" &&
-          checkStoriesSeen(item.username, currentUser.email) ? (
+          !checkStoriesSeen(item.username, currentUser.email) ? (
             <LinearGradient start={[0.9, 0.45]}  end={[0.07, 1.03]}
               colors={['#07f', '#82f', '#f0f']}
               style={styles.rainbowBorder}
@@ -151,8 +151,8 @@ const styles = StyleSheet.create({
   },
   rainbowBorder: {
     borderRadius: 100,
-    height: 80,
-    width: 80,
+    height: 60,
+    width: 60,
     justifyContent: "center",
     alignItems: "center",
   },

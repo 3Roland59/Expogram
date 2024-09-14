@@ -36,6 +36,9 @@ import VideoCall from "../Screens/VideoCall";
 import RoomScreen from "../Screens/RoomScreen";
 import JoinScreen from "../Screens/JoinScreen";
 import CallScreen from "../Screens/CallScreen";
+import ImageBrowser from "../Screens/ImageBrowser";
+import BrowseScreen from "../Screens/BrowserScreen";
+import PlayerScreen from "../Screens/PlayerScreen";
 
 const Stack = createStackNavigator();
 
@@ -257,6 +260,27 @@ const SignedInStack = () => {
               <Stack.Screen
                 name="CallScreen"
                 component={CallScreen}
+                options={{
+                  animation: "slide_from_right",
+                }}
+              />
+              <Stack.Screen
+                name="ImageBrowser"
+                component={ImageBrowser}
+                options={{
+                  animation: "slide_from_right",
+                }}
+              />
+              <Stack.Screen
+                name="BrowserScreen"
+                component={BrowseScreen}
+                options={{
+                  animation: "slide_from_right",
+                }}
+              />
+              <Stack.Screen
+                name="PlayerScreen"
+                component={PlayerScreen}
                 options={{
                   animation: "slide_from_right",
                 }}

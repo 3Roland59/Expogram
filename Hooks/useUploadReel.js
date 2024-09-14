@@ -14,7 +14,7 @@ const useUploadReel = () => {
                 const timestamp = new Date().getTime();
                     let vid = await uploadPicture(videoUrl, 'Reels', `${currentUser.username}${timestamp}`, 'video' )
                 
-                await uploadReel(currentUser.username, currentUser.user_id, currentUser.email, currentUser.profile_picture, vid, caption)
+                await uploadReel(currentUser.username, currentUser.user_id, currentUser.email, currentUser?.profile_picture, vid, caption)
             
                 
             } catch (error) {

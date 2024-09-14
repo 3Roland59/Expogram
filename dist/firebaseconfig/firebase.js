@@ -22,8 +22,8 @@ Object.defineProperty(exports, "orderBy", { enumerable: true, get: function () {
 Object.defineProperty(exports, "limit", { enumerable: true, get: function () { return firestore_1.limit; } });
 Object.defineProperty(exports, "doc", { enumerable: true, get: function () { return firestore_1.doc; } });
 Object.defineProperty(exports, "setDoc", { enumerable: true, get: function () { return firestore_1.setDoc; } });
-//import { getAnalytics } from "@firebase/analytics";
-//import exp from "constants";
+const async_storage_1 = __importDefault(require("@react-native-async-storage/async-storage"));
+// Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDZNniGl6HJQgKcc3S4aLHXEc1hgrv0f0o",
     authDomain: "expogram-ce49a.firebaseapp.com",
@@ -34,13 +34,14 @@ const firebaseConfig = {
     measurementId: "G-J6Q7XBP3JF",
 };
 // Initialize Firebase
-//!firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 const app = app_1.default.initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
+// Initialize Firebase Auth with React Native persistence
+const auth = (0, auth_1.initializeAuth)(app, {
+    persistence: (0, auth_1.getReactNativePersistence)(async_storage_1.default)
+});
+exports.auth = auth;
+// Initialize Firestore and Storage
 const db = app_1.default.firestore();
 exports.db = db;
 const storage = app_1.default.storage();
 exports.storage = storage;
-const auth = (0, auth_1.getAuth)(app);
-exports.auth = auth;
-// Path: src/api/server.ts

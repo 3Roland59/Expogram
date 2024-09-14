@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
-import React, { useMemo } from "react";
+import { StyleSheet, Text, View, TouchableOpacity, Alert, ActivityIndicator } from "react-native";
+import React, { useMemo, useState } from "react";
 import BottomSheet from "@gorhom/bottom-sheet";
 import CustomBackdrop from "../../Shared/bottomSheets/CustomBackdrop";
 import { Ionicons, Feather, MaterialIcons, Octicons } from "@expo/vector-icons";
@@ -7,6 +7,7 @@ import useReportAction from "../../../../Hooks/useReportAction";
 import useDeletePost from "../../../../Hooks/useDeletePost";
 import useSharePost from "../../../../Hooks/useSharePost";
 import useSavePost from "../../../../Hooks/useSavePost";
+import useDownloadReel from "../../../../Hooks/useDownloadMedia";
 
 const BottomSheetOptions = ({
   bottomSheetRef,
@@ -18,8 +19,9 @@ const BottomSheetOptions = ({
   const { deletePost } = useDeletePost();
   const { sharePost } = useSharePost();
   const { savePost } = useSavePost();
+  const {downloadReel, downloading} = useDownloadReel()
 
-  const snapPoints = useMemo(() => [300], []);
+  const snapPoints = useMemo(() => [370], []);
 
   const handleSavePost = async () => {
     await savePost(post, currentUser);
@@ -35,6 +37,14 @@ const BottomSheetOptions = ({
     navigation.navigate("EditPost", {
       post: post,
     });
+  };
+
+  const handleDownloadPost = async() => {
+    for (let i = 0; i < post?.imageUrl.length; i++) {
+      console.log('download', post?.imageUrl[i])
+     await downloadReel(post.imageUrl[i], i+post?.id)
+    }
+
   };
 
   const handleDeletePost = () => {
@@ -117,6 +127,18 @@ const BottomSheetOptions = ({
             </TouchableOpacity>
             <View style={styles.divider} />
             <TouchableOpacity
+              onPress={() => handleDownloadPost()}
+              style={styles.columnContainer}
+            >
+              <View style={styles.optionContainer}>
+              {
+                  downloading?<ActivityIndicator color={'#fff'} /> :<Feather name="download" size={24} color="#fff" />
+                }
+                <Text style={styles.optionText}>Download</Text>
+              </View>
+            </TouchableOpacity>
+            <View style={styles.divider} />
+            <TouchableOpacity
               onPress={() => handleDeletePost()}
               style={styles.columnContainer}
             >
@@ -136,6 +158,18 @@ const BottomSheetOptions = ({
               <View style={styles.optionContainer}>
               <Octicons name="info" size={22} color="#fff" />
                 <Text style={styles.optionText}>About this account</Text>
+              </View>
+            </TouchableOpacity>
+            <View style={styles.divider} />
+            <TouchableOpacity
+              onPress={() => handleDownloadPost()}
+              style={styles.columnContainer}
+            >
+              <View style={styles.optionContainer}>
+              {
+                  downloading?<ActivityIndicator color={'#fff'} /> :<Feather name="download" size={22} color="#fff" />
+                }
+                <Text style={styles.optionText}>Download</Text>
               </View>
             </TouchableOpacity>
             <View style={styles.divider} />

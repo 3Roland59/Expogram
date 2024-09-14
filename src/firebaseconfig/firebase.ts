@@ -8,6 +8,7 @@ import {
   GoogleAuthProvider,
   getRedirectResult,
   initializeAuth,
+  getReactNativePersistence
 } from "firebase/auth";
 import {
   getFirestore,
@@ -20,8 +21,9 @@ import {
   setDoc
 } from "firebase/firestore";
 
-//import { getAnalytics } from "@firebase/analytics";
-//import exp from "constants";
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
+
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDZNniGl6HJQgKcc3S4aLHXEc1hgrv0f0o",
   authDomain: "expogram-ce49a.firebaseapp.com",
@@ -31,14 +33,19 @@ const firebaseConfig = {
   appId: "1:940006901580:web:42132f3d0ec040ff33b1e9",
   measurementId: "G-J6Q7XBP3JF",
 };
-// Initialize Firebase
-//!firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
-const app = firebase.initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
 
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+
+// Initialize Firebase Auth with React Native persistence
+const auth = initializeAuth(app, {
+  persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+});
+
+// Initialize Firestore and Storage
 const db = firebase.firestore();
 const storage = firebase.storage();
-const auth = getAuth(app);
+
 export { getFirestore, collection, getDocs, query, orderBy };
 export {
   firebase,
@@ -52,5 +59,3 @@ export {
   doc,
   setDoc,
 };
-
-// Path: src/api/server.ts

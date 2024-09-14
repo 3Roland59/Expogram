@@ -226,7 +226,7 @@ const ReelScreen = ({ navigation }) => {
           </TouchableOpacity>)}
           </View>
           <Text style={styles.captionText}>{item.caption}</Text>
-          <View className='bg-[#222] flex flex-row px-3 py-1 rounded-full mt-1 items-center'><MaterialCommunityIcons name="music-circle-outline" size={28} color={'#fff'} /><Text className='text-white'>   Original - <Text className='text-white font-bold'>{currentUser.username}</Text></Text></View>
+          <View className='bg-[#00000080] flex flex-row px-1 pb-[2px] rounded-full mt-1 items-center'><MaterialCommunityIcons name="music-circle-outline" size={28} color={'#fff'} /><Text className='text-white text-[12px]'>   Original - <Text className='text-white text-[12px] font-bold'>{item.username}</Text></Text></View>
         </View>
         <View>
           <Progress.Bar

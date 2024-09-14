@@ -36,7 +36,9 @@ const styles = StyleSheet.create({
     width: SIZES.Width * 0.335,
     height: SIZES.Width * 0.335,
     margin: -0.4,
-    position:'relative'
+    position:'relative',
+    borderWidth:2,
+    borderColor:'black'
   },
   images: {
     position: "absolute",

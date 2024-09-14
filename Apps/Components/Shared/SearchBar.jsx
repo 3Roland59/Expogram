@@ -15,7 +15,7 @@ const SearchBar = ({ onPropChange, resetSearchBar }) => {
 
   return (
     <View style={styles.searchBar}>
-      <View className=' bg-[#3d3d3d] m-5 rounded-full p-[6px] px-3 flex flex-row items-center shadow-xl shadow-black'>
+      <View className=' bg-[#3d3d3d] mx-1 rounded-full p-[6px] px-3 flex flex-row items-center shadow-xl shadow-black'>
         <Ionicons
           name="search"
           size={20}

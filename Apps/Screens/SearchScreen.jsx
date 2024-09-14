@@ -162,6 +162,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "500",
     fontSize: 16,
+    marginLeft:-7
   },
   result: {
     flex: 1,

@@ -19,7 +19,7 @@ const useUploadPost = () => {
                 }
                 console.log('Uploadpost:', pics, currentUser, caption, hashtag)
 
-                await uploadPost(currentUser.username, currentUser.user_id, currentUser.email, currentUser.profile_picture, pics, caption, hashtag)
+                await uploadPost(currentUser.username, currentUser.user_id, currentUser.email, currentUser?.profile_picture, pics, caption, hashtag)
                
 
                 

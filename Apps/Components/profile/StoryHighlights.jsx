@@ -20,7 +20,7 @@ const StoryHighlights = ({ navigation, currentUser }) => {
     <SubHeader
       navigation={navigation}
       currentUser={currentUser}
-      numberOfPosts={posts.length}
+      numberOfPosts={posts[0]?.id==="empty"?0:posts.length}
     />
     <View style={{marginVertical:10}} />
   </View>

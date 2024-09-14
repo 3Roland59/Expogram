@@ -31,7 +31,7 @@ const Following = ({ user, currentUser, navigation }) => {
   return (
     <View style={styles.container}>
       <TouchableWithoutFeedback onPress={() => handleViewProfile()}>
-        {checkStoriesSeen(user.username, currentUser.email) ? (
+        {!checkStoriesSeen(user.username, currentUser.email) ? (
           <View style={styles.rowContainer}>
             <LinearGradient start={[0.9, 0.45]}  end={[0.07, 1.03]}
               colors={['#07f', '#82f', '#f0f']}
@@ -66,8 +66,8 @@ const Following = ({ user, currentUser, navigation }) => {
                 <Image source={require('../../../assets/images/profile_thumbnail.png')} style={styles.nonRainbowImage} />
               )}
             <View style={styles.userContainer}>
-              <Text style={styles.username}>{user.username}</Text>
-              <Text style={styles.name}>{user.username}</Text>
+              <Text numberOfLines={1} style={styles.username}>{user.username}</Text>
+              <Text numberOfLines={1} style={styles.name}>{user.username}</Text>
             </View>
           </View>
         )}
@@ -99,6 +99,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 15,
+    width:SIZES.Width*0.6,
+    overflow:'hidden'
   },
   rainbowBorder: {
     borderRadius: 100,
@@ -138,12 +140,14 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   button: {
-    backgroundColor: "#333",
+    backgroundColor: "#000",
     justifyContent: "center",
     alignItems: "center",
     height: Platform.OS === "android" ? 36 : 32,
     width: Platform.OS === "android" ? 105 : 90,
     borderRadius: 10,
+    borderWidth: 1,
+    borderColor:'#fff'
   },
   buttonText: {
     color: "#08f",

@@ -72,7 +72,7 @@ import { ScrollView } from "react-native";
         <ScrollView className='flex-1'>
       <View className="w-full h-[180px] items-center justify-end">
             {/* <Image source={require('../../assets/splash.gif')} className="w-[150px] h-[150px] " resizeMode='contain' /> */}
-            <Image source={require('../../assets/images/header-logo.png')} className="w-[250px] h-[130px] " resizeMode='contain' />
+            <Image source={require('../../assets/images/header.jpeg')} className="w-[250px] h-[130px] " resizeMode='contain' />
             </View>
         <Formik
           initialValues={{ email: "", password: "", username: '' }}

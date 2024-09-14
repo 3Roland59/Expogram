@@ -4,6 +4,7 @@ import { useUserContext } from "../../../Context/UserContext";
 import useHandleRequests from "../../../Hooks/useHandleRequests";
 import { SIZES } from "../../../Utils/Constants";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { Feather, Ionicons } from "@expo/vector-icons";
 
 const Requests = ({ user, navigation }) => {
   const { currentUser } = useUserContext();
@@ -43,13 +44,13 @@ const Requests = ({ user, navigation }) => {
       (<View style={styles.buttonContainer}>
         <TouchableOpacity onPress={() => handleRequests(true)}>
           <View style={styles.blueButton}>
-            <Text style={styles.removeText}>Accept</Text>
+            <Feather name="check" size={20} color={'#000'} />
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => handleRequests(false)}>
           <View style={styles.button}>
-            <Text style={styles.removeText1}>Remove</Text>
+            <Ionicons name="close" size={20}fff color={'#fff'} />
           </View>
         </TouchableOpacity>
       </View>):(
@@ -112,16 +113,14 @@ const styles = StyleSheet.create({
     borderColor: '#fff',
     justifyContent: "center",
     alignItems: "center",
-    height: 34,
-    width: 90,
+    padding:10,
     borderRadius: 10,
   },
   blueButton: {
     backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-    height: 34,
-    width: 90,
+    padding:10,
     borderRadius: 10,
   },
   buttonText: {

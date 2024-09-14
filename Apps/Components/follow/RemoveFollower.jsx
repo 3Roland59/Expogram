@@ -53,7 +53,7 @@ const RemoveFollower = ({ handleModal, user }) => {
                 source={{ uri: user.profile_picture }}
                 style={styles.image}
               />):(
-                <Image source={{uri: user.profile_picture}} style={styles.image} />
+                <Image source={require('../../../assets/images/profile_thumbnail.png')} style={styles.image} />
               )}
 
           <Text style={styles.textTitle}>Remove follower?</Text>

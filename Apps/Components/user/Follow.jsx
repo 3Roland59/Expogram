@@ -39,11 +39,9 @@ const Follow = ({ user, currentUser, navigation }) => {
     <View style={styles.container}>
       <TouchableWithoutFeedback onPress={() => handleViewProfile()}>
         <View style={styles.rowContainer}>
-          {checkStoriesSeen(user.username, currentUser.email) ? (
+          {!checkStoriesSeen(user.username, currentUser.email) ? (
             <LinearGradient start={[0.9, 0.45]}  end={[0.07, 1.03]}
-              start={[0.9, 0.45]}
-              end={[0.07, 1.03]}
-              colors={["#yellow","red"]}
+              colors={['#07f', '#82f', '#f0f']}
               style={styles.rainbowBorder}
             >{
               user.profile_picture?
@@ -75,7 +73,7 @@ const Follow = ({ user, currentUser, navigation }) => {
                 {user.username}
               </Text>
             </View>
-            <Text numberOfLines={1} style={styles}>
+            <Text numberOfLines={1} style={styles.name}>
               {user.username}
             </Text>
           </View>
@@ -100,7 +98,7 @@ const Follow = ({ user, currentUser, navigation }) => {
       ) : (
         <TouchableOpacity onPress={() => handleFollow(user.email)}>
           <View style={styles.blueButton}>
-            <Text style={styles.buttonText}>Follow</Text>
+            <Text style={styles.buttonText1}>Follow</Text>
           </View>
         </TouchableOpacity>
       )}
@@ -121,6 +119,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginHorizontal: 12,
     marginTop: 10,
+    paddingRight:10
   },
   rowContainer: {
     flexDirection: "row",
@@ -166,15 +165,17 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   button: {
-    backgroundColor: "#333",
+    backgroundColor: "#000",
     justifyContent: "center",
     alignItems: "center",
     height: Platform.OS === "android" ? 32 : 30,
     width: 94,
     borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#fff'
   },
   blueButton: {
-    backgroundColor: "#08f",
+    backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
     height: Platform.OS === "android" ? 32 : 30,
@@ -183,6 +184,12 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "#fff",
+    fontWeight: "700",
+    fontSize: 13,
+    marginBottom: Platform.OS === "android" ? 4 : 0,
+  },
+  buttonText1: {
+    color: "#000",
     fontWeight: "700",
     fontSize: 13,
     marginBottom: Platform.OS === "android" ? 4 : 0,

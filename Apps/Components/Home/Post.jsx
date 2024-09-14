@@ -195,6 +195,7 @@ const PostImage = ({ post, currentUser }) => {
         showsHorizontalScrollIndicator={false}
         onScroll={onScroll}
         scrollEventThrottle={16}
+         className='border-b-2 border-[#fff]'
       >
         {post.imageUrl.map((image, index) => (
             <View style={styles.imageContainer} key={index}>
@@ -280,7 +281,7 @@ const PostFooter =({currentUser, navigation, post})=>{
       </View>
       <TouchableOpacity onPress={() => savePost(post, currentUser)}>
           {currentUser.saved_posts &&
-        currentUser.saved_posts.includes(post.created_at.seconds) ? (
+        currentUser.saved_posts.includes(post.created_at?.seconds) ? (
           <Ionicons
             name="bookmark"
             size={24}
@@ -409,9 +410,9 @@ export const Caption = ({ post }) => {
         <TouchableOpacity className='mt-2' onPress={() => handleViewComment()}>
             <View style={styles.container}>
             {
-              currentUser.profile_picture?
+              currentUser?.profile_picture?
               <Image
-                source={{uri:currentUser.profile_picture}}
+                source={{uri:currentUser?.profile_picture}}
                 style={styles.headerImageWithRainbow}
               />:
               <Image

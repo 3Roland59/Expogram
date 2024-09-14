@@ -27,7 +27,7 @@ const useChatSendMessage = ({user, currentUser}) => {
             const current = {
             email: currentUser.email,
             name: currentUser.username,
-            profile_picture: currentUser.profile_picture,
+            profile_picture: currentUser?.profile_picture,
             username: currentUser.username,
             status: "unseen",
             };

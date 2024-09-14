@@ -51,8 +51,8 @@ const SubHeader = ({ navigation, currentUser, numberOfPosts }) => {
             {!ownStory ? (
               <View>
                 {
-                currentUser.profile_picture?(<Image
-                  source={{ uri: currentUser.profile_picture }}
+                currentUser?.profile_picture?(<Image
+                  source={{ uri: currentUser?.profile_picture }}
                   style={styles.userImageWithoutStory}
                 />):(<Image
                   source={require('../../../assets/images/profile_thumbnail.png')}
@@ -67,8 +67,8 @@ const SubHeader = ({ navigation, currentUser, numberOfPosts }) => {
               <View>
                 <View style={styles.seenStoryBorder}>
                   {
-                currentUser.profile_picture?(<Image
-                  source={{ uri: currentUser.profile_picture }}
+                currentUser?.profile_picture?(<Image
+                  source={{ uri: currentUser?.profile_picture }}
                   style={styles.userImage}
                 />):(<Image
                   source={require('../../../assets/images/profile_thumbnail.png')}
@@ -84,8 +84,8 @@ const SubHeader = ({ navigation, currentUser, numberOfPosts }) => {
                   style={styles.unseenRainbowBorder}
                 >
                  {
-                currentUser.profile_picture?(<Image
-                  source={{ uri: currentUser.profile_picture }}
+                currentUser?.profile_picture?(<Image
+                  source={{ uri: currentUser?.profile_picture }}
                   style={styles.userImage}
                 />):(<Image
                   source={require('../../../assets/images/profile_thumbnail.png')}
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingBottom: 5,
     marginRight: 8,
-    gap: SIZES.Width*0.1,
+    gap: SIZES.Width*0.07,
   },
   socialColumn: {
     minWidth: 60,

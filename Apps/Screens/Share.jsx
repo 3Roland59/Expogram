@@ -23,13 +23,17 @@ const Share = ({ navigation, route }) => {
           <View style={styles.qrContainer}>
             <QRCode
               size={180}
-              value={"http://expogram.com/" + user.username}
+              value={"https://expogram.com/" + user.username}
               backgroundColor={"transparent"}
               logoSize={55}
               logo={require("../../assets/favicon.png")}
               logoMargin={0}
+              quietZone={3}
               logoBorderRadius={15}
+              ecl="H"
               logoBackgroundColor={"#fff"}
+              enableLinearGradient
+              linearGradient={['#00f', '#f0f']}
             />
           </View>
           <Text numberOfLines={1} style={styles.user}>
@@ -50,7 +54,7 @@ const Share = ({ navigation, route }) => {
         <View style={styles.divider} />
         <TouchableOpacity
           onPress={() => {
-            Clipboard.setStringAsync("http://expogram.com/" + user.username);
+            Clipboard.setStringAsync("https://expogram.com/" + user.username);
             setCopyModalVisible(true);
             setTimeout(() => {
               setCopyModalVisible(false);
@@ -103,7 +107,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   qrContainer: {
-    // borderRadius: 15,
+    borderRadius: 15,
     overflow: "hidden",
   },
   user: {

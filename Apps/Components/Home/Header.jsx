@@ -1,6 +1,6 @@
 import { View, Text, Image, TouchableOpacity, Platform } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { FontAwesome,  MaterialIcons, FontAwesome5, Feather } from '@expo/vector-icons'
+import { FontAwesome,  MaterialIcons, FontAwesome5, Feather, Ionicons } from '@expo/vector-icons'
 import { StyleSheet } from 'react-native';
 import { BlurView } from "expo-blur";
 import ModalNotification from "../notifications/ModalNotification";
@@ -13,7 +13,7 @@ export default function Header({navigation, currentUser}) {
   const [notificationModal, setNotificationModal] = useState(false);
 
   useEffect(() => {
-    if (currentUser.event_notification > 0) {
+    if (currentUser?.event_notification > 0) {
       setNotificationModal(true);
 
       setTimeout(() => {
@@ -29,7 +29,7 @@ export default function Header({navigation, currentUser}) {
     <View className="">
         <View className='justify-between items-center flex-row mx-5 my-1'>
         <TouchableOpacity className='flex flex-row justify-center items-center gap-1' onPress={() => setFilterModalVisible(true)}>
-            <Image source={require('../../../assets/images/header-logo.png')} className="w-[130px] h-[50px] " resizeMode='contain' />
+            <Image source={require('../../../assets/images/header.jpeg')} className="w-[130px] h-[50px] " resizeMode='contain' />
             <MaterialIcons
             name={"keyboard-arrow-down"}
             size={20}
@@ -37,6 +37,12 @@ export default function Header({navigation, currentUser}) {
           />
         </TouchableOpacity>
         <View className="flex-row items-center gap-4">
+              <TouchableOpacity onPress={() => navigation.navigate("BrowserScreen")} >
+                <Feather name='music' size={24} color={'white'} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("ImageBrowser")} >
+                <Ionicons name='images-outline' size={24} color={'white'} />
+              </TouchableOpacity>
             <TouchableOpacity onPress={() => {
               navigation.navigate("Notifications", {
                 currentUser: currentUser,

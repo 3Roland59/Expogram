@@ -202,8 +202,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginHorizontal: 15,
-    marginTop: 10,
-    paddingHorizontal:20
+    marginTop: 5,
+    paddingHorizontal:10
   },
   textTitle: {
     color: "#fff",

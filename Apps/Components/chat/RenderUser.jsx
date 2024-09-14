@@ -63,7 +63,7 @@ const RenderUser = ({ navigation, user, currentUser, handleCamera }) => {
           </View>
         )}
       </TouchableOpacity>
-      <TouchableOpacity onPress={handleCamera}>
+      <TouchableOpacity onPress={handleCamera} >
         <Feather name="camera" size={22} color={"#fff"} style={styles.icon} />
       </TouchableOpacity>
     </View>
@@ -85,11 +85,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   image: {
-    height: 60,
-    width: 60,
+    height: 62,
+    width: 62,
     borderRadius: 100,
-    borderWidth: 4,
-    borderColor: "#000",
+    borderWidth: 2,
+    borderColor: "#82f",
   },
   userContainer: {
     justifyContent: "center",

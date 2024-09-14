@@ -4,8 +4,8 @@ import React from "react";
 const RenderSelfProfile = ({currentUser}) => {
   return (
     <View style={styles.container}>
-      {currentUser.profile_picture?<Image
-            source={{uri: currentUser.profile_picture}}
+      {currentUser?.profile_picture?<Image
+            source={{uri: currentUser?.profile_picture}}
             style={styles.image}
           />:
       <Image source={require('../../../assets/images/profile_thumbnail.png')} style={styles.image} />}

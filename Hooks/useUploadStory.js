@@ -13,7 +13,7 @@ const useUploadStory = () => {
                 const timestamp = new Date().getTime();
                 const uploadedImageUrl = await uploadPicture(imageUrl.uri, 'Story', `${currentUser.username}${timestamp}`);
                 console.log('url: ', uploadedImageUrl)
-                await uploadStory( uploadedImageUrl, currentUser.username, currentUser.username, currentUser.profile_picture, currentUser.user_id,currentUser.email)
+                await uploadStory( uploadedImageUrl, currentUser.username, currentUser.username, currentUser?.profile_picture, currentUser.user_id,currentUser.email)
                 
             } catch (error) {
                 console.error(error);

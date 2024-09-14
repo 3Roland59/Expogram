@@ -95,8 +95,8 @@ import useUploadPicture from "../../Hooks/useUploadPicture";
                 style={styles.rowContainer}
               >
                 <MaterialIcons name="arrow-back-ios" size={28} color={"#fff"} />
-        {currentUser.profile_picture?<Image
-            source={{uri: currentUser.profile_picture}}
+        {currentUser?.profile_picture?<Image
+            source={{uri: currentUser?.profile_picture}}
             style={styles.profilePicture}
           />:
       <Image source={require('../../assets/images/profile_thumbnail.png')} style={styles.profilePicture} />}
@@ -309,7 +309,7 @@ import useUploadPicture from "../../Hooks/useUploadPicture";
       fontSize: 17,
       marginBottom: 4,
       marginLeft: 10,
-      width: SIZES.Width * 0.65,
+      width: SIZES.Width * 0.6,
     },
     cameraWrapper: {
       marginLeft: 8,

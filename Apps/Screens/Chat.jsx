@@ -25,6 +25,7 @@ import MessageModal, {
 } from "../Components/Shared/modals/MessageModal";
 import RenderAi from "../Components/chat/RenderAi";
 import RenderSelf from "../Components/chat/RenderSelf";
+import LottieView from "lottie-react-native";
 
 const Chat = ({ navigation }) => {
   const [searchKey, setSearchKey] = useState("");
@@ -80,7 +81,6 @@ const Chat = ({ navigation }) => {
 
   const renderHeaderComponent = () => (
   <>
-    <RenderAi navigation={navigation} handleCamera={()=>handleCamera()} />
     <RenderSelf navigation={navigation} currentUser={currentUser} handleCamera={()=>handleCamera()} />
     </>
   );
@@ -147,10 +147,11 @@ const Chat = ({ navigation }) => {
                 <RenderUser navigation={navigation} user={item} />
               )}
               initialNumToRender={20}
+              ListFooterComponent={<View className='mb-20' ></View>}
             />
           </View>
         ) : (
-          <View>
+          <View className='flex-1 relative'>
             <Text style={styles.subtitle}>Messages</Text>
             <FlatList
               data={chatUsers}
@@ -166,6 +167,16 @@ const Chat = ({ navigation }) => {
               )}
               initialNumToRender={20}
             />
+            <View className='absolute bottom-3 right-3 z-30'>
+              <View className='relative'>
+              <View className='absolute bottom-0 right-0 z-40'>
+              <LottieView source={require('../../assets/lottie5.json')} style={{width:150,height:150}} autoPlay loop />
+              </View>
+              <View className='absolute bottom-11 right-11 z-50'>
+              <RenderAi navigation={navigation}/>
+              </View>
+              </View>
+            </View>
           </View>
         )}
       </View>
@@ -207,7 +218,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 17,
     fontWeight: "700",
-    marginTop: 14,
+    marginVertical: 14,
     marginLeft: 15,
   },
   searchBar: {
@@ -229,7 +240,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     color: "#fff",
-    height: "100%",
+    height: "150%",
     fontSize: 16,
     marginBottom: Platform.OS === "android" ? 3 : 0,
     flex: 1,

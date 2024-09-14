@@ -34,7 +34,7 @@ import CameraModule from "../Components/Shared/CameraModule";
 import useUploadPicture from "../../Hooks/useUploadPicture";
 import { Audio, RecordingOptionsPresets } from "expo-av";
 import LottieView from "lottie-react-native";
-import AudioPlayer from "../Components/chat/AudioPlayer";
+// import AudioPlayer from "../Components/chat/AudioPlayer";
 
 const Chating = ({ navigation, route }) => {
   const { user } = route.params;
@@ -497,7 +497,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     marginBottom: 4,
     marginLeft: 10,
-    width: SIZES.Width * 0.65,
+    width: SIZES.Width * 0.6,
   },
   cameraWrapper: {
     marginLeft: 8,

@@ -108,8 +108,8 @@ const BottomTabs = ({ navigation }) => {
         options={{
           tabBarIcon: ({focused}) => {
             return (
-                currentUser.profile_picture?<Image
-                source={{uri: currentUser.profile_picture}}
+                currentUser?.profile_picture?<Image
+                source={{uri: currentUser?.profile_picture}}
                 className="w-[28px] h-[28px] rounded-full " style={{borderWidth: focused? 2:0, borderColor: '#fff'}}
               />:<Image source={require('../../assets/images/profile_thumbnail.png')} className="w-[28px] h-[28px] rounded-full " style={{borderWidth: focused? 2:0, borderColor: '#fff'}}/>
             )

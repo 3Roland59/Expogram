@@ -246,7 +246,7 @@ import RenderAiProfile from "../Components/chat/RenderAiProfile";
       fontSize: 17,
       marginBottom: 4,
       marginLeft: 10,
-      width: SIZES.Width * 0.65,
+      width: SIZES.Width * 0.6,
     },
     cameraWrapper: {
       marginLeft: 8,

@@ -19,8 +19,8 @@ import {
           }}
           style={styles.rowContainer}
         >
-          {currentUser.profile_picture?<Image
-            source={{uri: currentUser.profile_picture}}
+          {currentUser?.profile_picture?<Image
+            source={{uri: currentUser?.profile_picture}}
             style={styles.image}
           />:
       <Image source={require('../../../assets/images/profile_thumbnail.png')} style={styles.image} />}
@@ -51,11 +51,11 @@ import {
       flexDirection: "row",
     },
     image: {
-      height: 60,
-      width: 60,
+      height: 62,
+      width: 62,
       borderRadius: 100,
-      borderWidth: 4,
-      borderColor: "#000",
+      borderWidth: 2,
+      borderColor: "#82f",
     },
     userContainer: {
       justifyContent: "center",

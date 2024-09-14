@@ -121,7 +121,7 @@ const NewStory = ({ navigation, route }) => {
           style={styles.userContainer}
         >
           <Image
-            source={{ uri: currentUser.profile_picture }}
+            source={{ uri: currentUser?.profile_picture }}
             style={styles.userImage}
           />
           <Text style={styles.userText}>Your story</Text>

@@ -80,6 +80,7 @@ const Link = ({ navigation }) => {
             <TextInput
               value={values}
               placeholder="http://example.com"
+              placeholderTextColor="#333"
               onChangeText={(text) => setValues(text)}
               autoCapitalize="none"
               autoCorrect={false}
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#000",
     flex: 1,
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    paddingTop: 0,
   },
   headerContainer: {
     flexDirection: "row",
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   textName: {
-    color: "#999",
+    color: "#fff",
     fontSize: 16,
     fontWeight: "500",
     marginTop: 20,

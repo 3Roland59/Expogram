@@ -126,9 +126,9 @@ const BottomSheetComment = ({ bottomSheetRefComment, currentUser, post }) => {
             </TouchableOpacity>
           </View>
           <View style={styles.writingContainer}>
-          {currentUser.profile_picture?(<Image
+          {currentUser?.profile_picture?(<Image
               source={{
-                uri: currentUser.profile_picture,
+                uri: currentUser?.profile_picture,
               }}
               style={styles.profilePicture}
             />):(<Image

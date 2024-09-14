@@ -22,7 +22,7 @@ const useUploadComment = (post, currentUser) => {
                 const postRef = snapshot.ref;
                 const newComment = {
                     email: currentUser.email,
-                    profile_picture: currentUser.profile_picture,
+                    profile_picture: currentUser?.profile_picture,
                     username: currentUser.username,
                     comment: value,
                     created_at: currentTimestamp,

@@ -65,7 +65,7 @@ const ProfilePicture = ({ bottomSheetRef, currentUser, onPropChange }) => {
       <View style={styles.mainContainer}>
         <Image
           source={{
-            uri: previewImage ? previewImage : currentUser.profile_picture,
+            uri: previewImage ? previewImage : currentUser?.profile_picture,
           }}
           style={styles.image}
         />

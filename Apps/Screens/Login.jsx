@@ -5,7 +5,6 @@ import {
     TextInput,
     TouchableOpacity,
     Keyboard,
-    platform,
     Platform,
     KeyboardAvoidingView,
     ActivityIndicator,
@@ -18,7 +17,7 @@ import {
   import MessageModal from "../Components/Shared/MessageModal";
 import { Image } from "react-native";
 import { Divider } from "react-native-elements";
-import { loginWithGoogle, onLogin } from "../../dist/authservices/auth";
+import { onLogin } from "../../dist/authservices/auth";
 import { ScrollView } from "react-native";
   
   const Login = ({ navigation }) => {
@@ -56,7 +55,8 @@ import { ScrollView } from "react-native";
         setLoading(false)
         console.log(login)
       } catch (error) {
-        handleDataError('Bad connection or Invalid email or password')
+        console.log(error)
+        handleDataError('Invalid email or password')
       } finally {
         setLoading(false);
     } 
@@ -65,7 +65,7 @@ import { ScrollView } from "react-native";
     const LoginWithGoogle = async()=>{
       try {
       //  const user =  await loginWithGoogle();
-       console.log('user')
+      handleDataError('This feature is yet to be implemented')
       } catch (error) {
         console.log(error)
       }
@@ -77,7 +77,7 @@ import { ScrollView } from "react-native";
         <ScrollView className='flex-1'>
       <View className="w-full h-[200px] items-center justify-end">
             {/* <Image source={require('../../assets/splash.gif')} className="w-[150px] h-[150px] " resizeMode='contain' /> */}
-            <Image source={require('../../assets/images/header-logo.png')} className="w-[250px] h-[130px] " resizeMode='contain' />
+            <Image source={require('../../assets/images/header.jpeg')} className="w-[250px] h-[130px] " resizeMode='contain' />
             </View>
         <Formik
           initialValues={{ email: "", password: "" }}
